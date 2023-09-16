@@ -10,3 +10,11 @@ Required environment variables:
 * CLOUDFLARE_DOMAIN_LIST: List of domains to register in certbots expected format, eg:
                         "domain.com"                       - Single domain
                         "*.domain.com -d test.domain.com"  - Multiple with wildcard
+
+Testing:
+
+1. Create a .env file with the required environment variables or set them manually via CLI or in the compose file.
+2. Build images: `make`
+3. Test the latest python-cloudflare package: `make run-new`
+4. Test the older working python-cloudflare package: `make run-old`
+5. Clean up `make remove`
