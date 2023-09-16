@@ -64,19 +64,6 @@ To run the `certtest:new` image, run:
 make run-new
 ```
 
-To run the `certtest:old` image in detached mode, run:
-
-```bash
-make run-old-detached
-```
-
-
-To run the `certtest:new` image in detached mode, run:
-
-```bash
-make run-new-detached
-```
-
 ### Shut Down Container
 
 ```bash
