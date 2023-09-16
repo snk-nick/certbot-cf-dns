@@ -42,13 +42,11 @@ CLOUDFLARE_DOMAIN_LIST="test@domain.com"
 
 For simpler and consistent testing, a Makefile is included:
 
-- `make all`: Build both `certtest:old` and `certtest:new` images.
-- `make build-old`: Build the `certtest:old` image.
+- `make all`: Build both `certtest:new` and `certtest:old` images.
 - `make build-new`: Build the `certtest:new` image.
-- `make run-old`: Run the `certtest:old` image.
+- `make build-old`: Build the `certtest:old` image.
 - `make run-new`: Run the `certtest:new` image.
-- `make run-old-detached`: Run the `certtest:old` image in detached mode.
-- `make run-new-detached`: Run the `certtest:new` image in detached mode.
+- `make run-old`: Run the `certtest:old` image.
 - `make remove`: Remove containers.
 - `make purge`: Remove all resources (containers, networks, volumes, and images) related to this project.
 
