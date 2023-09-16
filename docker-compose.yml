@@ -2,13 +2,13 @@ version: '3.9'
 
 services:
   certbot:
-      image: certy:5
-      # volumes:
-      #   - ssl_certs:/etc/letsencrypt
+      image: ${CERTBOT_IMAGE_NAME:-certtest:new}
+      volumes:
+        - ssl_certs:/etc/letsencrypt
       environment:
         CLOUDFLARE_TOKEN: ${CLOUDFLARE_TOKEN}
         CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
         CLOUDFLARE_DOMAIN_LIST: ${CLOUDFLARE_DOMAIN_LIST}
 
-# volumes:
-#   ssl_certs:
+volumes:
+  ssl_certs:

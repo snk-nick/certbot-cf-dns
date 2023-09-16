@@ -19,7 +19,7 @@ ARG TAG=3.11.5-slim
 # Package version arguments. 
 ARG CERTBOT_VERSION=2.6.0
 ARG CERTBOT_DNS_VERSION=2.6.0
-ARG CLOUDFLARE_VERSION=2.8.15 
+ARG CLOUDFLARE_VERSION=2.8.15
 
 # Pull the base image
 FROM ${IMAGE}:${TAG}
@@ -41,6 +41,7 @@ RUN pip install --no-cache-dir certbot==${CERTBOT_VERSION} certbot-dns-cloudflar
 COPY init-certbot.sh /init-certbot.sh
 RUN chmod +x /init-certbot.sh
 
-# Runs the init-certbot script on launch then every 12 hours aftwards. 
+# Runs the init-certbot script on launch then every 12 hours afterwards. 
 # Output is logged to /var/log/certbot.log
-CMD ["/bin/sh", "-c", "trap exit TERM; while :; do /init-certbot.sh >> /var/log/certbot.log 2>&1; sleep 12h & wait ${!}; done"]
+#CMD ["/bin/sh", "-c", "trap exit TERM; while :; do /init-certbot.sh >> /var/log/certbot.log 2>&1; sleep 12h & wait ${!}; done"]
+CMD ["/bin/sh", "-c", "/init-certbot.sh"]
