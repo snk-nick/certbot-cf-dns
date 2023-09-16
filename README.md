@@ -1,16 +1,19 @@
 # Certbot Testing
 
-The current official builds don't seem to work due to an issue with the python-cloudflare package
-(Very) quick testing showed this issue persists for all versions after v2.8.15, with any attempt
-to use a token instead of a global API key failing after that point. This container should NOT be
-used in production without additional testing to ensure it functions as expected, but feel free.
+The current official builds don't seem to work due to an issue with the python-cloudflare package.  
+**_(Warning: This container should NOT be used in production without additional testing.)_**
 
-Required environment variables:
-* CLOUDFLARE_TOKEN: Cloudflare token with appropriate permissions (NOT an API key).
-* CLOUDFLARE_EMAIL: Email to register domain with.
-* CLOUDFLARE_DOMAIN_LIST: List of domains to register in certbots expected format, eg:
-                        "domain.com"                       - Single domain
-                        "*.domain.com -d test.domain.com"  - Multiple with wildcard
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Environment Variables](#environment-variables)
+- [Make Commands](#make-commands)
+  - [Building Images](#building-images)
+  - [Running Containers](#running-containers)
+  - [Cleaning Up](#cleaning-up)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Prerequisites
 
@@ -18,9 +21,19 @@ Required environment variables:
 - Docker Compose
 - GNU Make
 
+## Environment Variables
+
+Required environment variables:
+
+- `CLOUDFLARE_TOKEN`: Cloudflare token with appropriate permissions (NOT an API key).
+- `CLOUDFLARE_EMAIL`: Email to register domain with.
+- `CLOUDFLARE_DOMAIN_LIST`: List of domains to register in certbot's expected format, e.g.:
+  - `"domain.com"` for a single domain
+  - `"*.domain.com -d test.domain.com"` for multiple domains with a wildcard
+
 ## Make Commands
 
-For simpler/consistent testing a Makefile is included:
+For simpler and consistent testing, a Makefile is included:
 
 - `make all`: Build both `certtest:old` and `certtest:new` images.
 - `make build-old`: Build the `certtest:old` image.
