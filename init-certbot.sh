@@ -12,7 +12,6 @@ certbot certonly \
     --dns-cloudflare-propagation-seconds 30 \
     --agree-tos \
     --no-eff-email \
-    --staging \
     -n \
     -m $CLOUDFLARE_EMAIL \
     -d $CLOUDFLARE_DOMAIN_LIST
