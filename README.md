@@ -85,7 +85,7 @@ make remove
 
 ### Cleaning Up
 
-To remove all resources (containers, networks, volumes, and images) related to this project, run:
+To purge all resources (containers, networks, volumes, and images) related to this test, run:
 ```bash
 make purge
 ```

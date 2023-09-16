@@ -16,7 +16,8 @@ help:
 	@echo "  build-new     Build certtest:new image"
 	@echo "  run-old       Run old image"
 	@echo "  run-new       Run new image"
-	@echo "  remove        Remove containers, networks, volumes, and images"
+	@echo "  remove        Shut down containers"
+	@echo "  purge         Purge containers, networks, volumes, and images"
 
 # Targets
 all: build-old build-new
