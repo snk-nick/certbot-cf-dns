@@ -13,7 +13,7 @@ Required environment variables:
 
 Testing:
 
-1. Create a .env file with the required environment variables or set them manually via CLI or in the compose file.
+1. Create a .env file with the required environment variables or set them via CLI/the compose file directly.
 2. Build images: `make`
 3. Test the latest python-cloudflare package: `make run-new`
 4. Test the older working python-cloudflare package: `make run-old`
