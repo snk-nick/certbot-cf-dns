@@ -23,4 +23,5 @@ run-new-detached:
 	CERTBOT_IMAGE_NAME=certtest:new docker compose up -d
 
 remove:
-	docker compose down
+	docker compose down -v
+	docker rmi certtest:old certtest:new

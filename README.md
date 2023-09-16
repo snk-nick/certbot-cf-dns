@@ -17,4 +17,4 @@ Testing:
 2. Build images: `make`
 3. Test the latest python-cloudflare package: `make run-new`
 4. Test the older working python-cloudflare package: `make run-old`
-5. Clean up `make remove`
+5. Shutdown and delete all containers, remove volumes, and images: `make remove`
