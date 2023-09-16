@@ -31,6 +31,14 @@ Required environment variables:
   - `"domain.com"` for a single domain
   - `"*.domain.com -d test.domain.com"` for multiple domains with a wildcard
 
+Can be provided with an .env file in the following format:
+
+```
+CLOUDFLARE_TOKEN="abcdefghigjl123456789"
+CLOUDFLARE_EMAIL="email@domain.com"
+CLOUDFLARE_DOMAIN_LIST="test@domain.com"
+```
+
 ## Make Commands
 
 For simpler and consistent testing, a Makefile is included:
