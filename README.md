@@ -11,6 +11,7 @@ The current official builds don't seem to work due to an issue with the python-c
   - [Building Images](#building-images)
   - [Running Containers](#running-containers)
   - [Cleaning Up](#cleaning-up)
+- [Testing](#Testing)
 - [Expected Results](#expected-results)
 
 ## Prerequisites
@@ -95,6 +96,16 @@ To purge all resources (containers, networks, volumes, and images) related to th
 ```bash
 make purge
 ```
+
+## Testing
+
+```
+make all
+make run-new
+make run-old
+make remove
+```
+
 
 ## Expected Results
 
