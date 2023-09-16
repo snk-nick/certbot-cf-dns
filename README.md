@@ -13,9 +13,6 @@ The current official builds don't seem to work due to an issue with the python-c
   - [Cleaning Up](#cleaning-up)
 - [Expected Results](#expected-results)
 
-
-Expected Results
-
 ## Prerequisites
 
 - Docker
