@@ -11,4 +11,4 @@ services:
         CLOUDFLARE_DOMAIN_LIST: ${CLOUDFLARE_DOMAIN_LIST}
 
 volumes:
-  ssl_certs:
+  ssl_certs_testing:
