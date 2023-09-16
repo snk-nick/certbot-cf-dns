@@ -42,7 +42,7 @@ make all
 Build only the `certtest:old` image, run:
 
 ```bash
-`make build-old`
+make build-old
 ```
 
 Build only the `certtest:new` image, run:
