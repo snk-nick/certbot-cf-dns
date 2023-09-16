@@ -11,9 +11,10 @@ The current official builds don't seem to work due to an issue with the python-c
   - [Building Images](#building-images)
   - [Running Containers](#running-containers)
   - [Cleaning Up](#cleaning-up)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
+- [Expected Results](#expected-results)
+
+
+Expected Results
 
 ## Prerequisites
 
@@ -98,4 +99,42 @@ make remove
 To purge all resources (containers, networks, volumes, and images) related to this test, run:
 ```bash
 make purge
+```
+
+## Expected Results
+
+When running the new container:
+
+```
+[+] Running 3/0
+ ✔ Network certbot-cf-dns_default      Created                                                                                             0.1s 
+ ✔ Volume "certbot-cf-dns_ssl_certs"   Created                                                                                             0.0s 
+ ✔ Container certbot-cf-dns-certbot-1  Created                                                                                             0.0s 
+Attaching to certbot-cf-dns-certbot-1
+certbot-cf-dns-certbot-1  | Saving debug log to /var/log/letsencrypt/letsencrypt.log
+certbot-cf-dns-certbot-1  | Account registered.
+certbot-cf-dns-certbot-1  | Requesting a certificate for test.domain.com
+certbot-cf-dns-certbot-1  | Error determining zone_id: 6003 Invalid request headers. Please confirm that you have supplied valid Cloudflare API credentials. (Did you copy your entire API token/key? To use Cloudflare tokens, you'll need the python package cloudflare>=2.3.1. This certbot is running cloudflare 2.11.7)
+certbot-cf-dns-certbot-1  | Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+certbot-cf-dns-certbot-1 exited with code 1
+```
+
+When running the old container:
+```
+[+] Running 1/0
+ ✔ Container certbot-cf-dns-certbot-1  Recreated                                                                                           0.0s 
+Attaching to certbot-cf-dns-certbot-1
+certbot-cf-dns-certbot-1  | Saving debug log to /var/log/letsencrypt/letsencrypt.log
+certbot-cf-dns-certbot-1  | Requesting a certificate for test.domain.com
+certbot-cf-dns-certbot-1  | Waiting 30 seconds for DNS changes to propagate
+certbot-cf-dns-certbot-1  | 
+certbot-cf-dns-certbot-1  | Successfully received certificate.
+certbot-cf-dns-certbot-1  | Certificate is saved at: /etc/letsencrypt/live/test.domain.com/fullchain.pem
+certbot-cf-dns-certbot-1  | Key is saved at:         /etc/letsencrypt/live/test.domain.com/privkey.pem
+certbot-cf-dns-certbot-1  | This certificate expires on 2023-12-15.
+certbot-cf-dns-certbot-1  | These files will be updated when the certificate renews.
+certbot-cf-dns-certbot-1  | NEXT STEPS:
+certbot-cf-dns-certbot-1  | - The certificate will need to be renewed before it expires. Certbot can automatically renew the certificate in the background, but you may need to take steps to enable that functionality. See https://certbot.org/renewal-setup for instructions.
+certbot-cf-dns-certbot-1  | 
+certbot-cf-dns-certbot-1 exited with code 0
 ```
