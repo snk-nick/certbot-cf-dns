@@ -20,6 +20,7 @@ The current official builds don't seem to work due to an issue with the python-c
 - Docker
 - Docker Compose
 - GNU Make
+- Valid Cloudflare API token with "Edit zone DNS" rights to the domain you are requesting an SSL certificate for.
 
 ## Environment Variables
 
