@@ -67,15 +67,15 @@ make build-new
 
 ### Running Containers
 
-To run the `certtest:old` image, run:
-```bash
-make run-old
-```
-
 To run the `certtest:new` image, run:
 
 ```bash
 make run-new
+```
+
+To run the `certtest:old` image, run:
+```bash
+make run-old
 ```
 
 ### Remove Container
