@@ -4,7 +4,7 @@ services:
   certbot:
       image: ${CERTBOT_IMAGE_NAME:-certtest:new}
       volumes:
-        - ssl_certs:/etc/letsencrypt
+        - ssl_certs_testing:/etc/letsencrypt
       environment:
         CLOUDFLARE_TOKEN: ${CLOUDFLARE_TOKEN}
         CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
