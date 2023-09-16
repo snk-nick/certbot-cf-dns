@@ -8,8 +8,6 @@
 # CLOUDFLARE_DOMAIN_LIST: List of domains to register in certbots expected format, eg:
 #                         "domain.com"                       - Single domain
 #                         "*.domain.com -d test.domain.com"  - Multiple with wildcard
-#
-# Configured as is it will obtain the certificate then wait 12 hours/attempt a renewal.
 ###################################################################################################
 
 # Build arguments
@@ -32,6 +30,6 @@ RUN pip install --no-cache-dir cloudflare==${CLOUDFLARE_VERSION}
 COPY init-certbot.sh /init-certbot.sh
 RUN chmod +x /init-certbot.sh
 
-# Runs the init-certbot script on launch then every 12 hours aftwards. 
-# Output is logged to /var/log/certbot.log
-ENTRYPOINT ["/bin/sh", "-c", "trap exit TERM; while :; do /init-certbot.sh >> /var/log/certbot.log 2>&1; sleep 12h & wait ${!}; done"]
+# Runs the init-certbot script on launch, output to stdout
+ENTRYPOINT ["/bin/sh", "-c", "/init-certbot.sh"]
+#ENTRYPOINT ["/bin/sh", "-c", "trap exit TERM; while :; do /init-certbot.sh >> /var/log/certbot.log 2>&1; sleep 12h & wait ${!}; done"]

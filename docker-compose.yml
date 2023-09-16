@@ -2,10 +2,7 @@ version: '3.9'
 
 services:
   certbot:
-      image: snk-certbot:1.0
-      build:
-        context: ./
-        dockerfile: Dockerfile
+      image: ${CERTBOT_IMAGE_NAME:-certtest:new}
       volumes:
         - ssl_certs:/etc/letsencrypt
       environment:
