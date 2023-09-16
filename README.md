@@ -29,7 +29,8 @@ For simpler/consistent testing a Makefile is included:
 - `make run-new`: Run the `certtest:new` image.
 - `make run-old-detached`: Run the `certtest:old` image in detached mode.
 - `make run-new-detached`: Run the `certtest:new` image in detached mode.
-- `make remove`: Remove all resources (containers, networks, volumes, and images) related to this project.
+- `make remove`: Remove containers.
+- `make purge`: Remove all resources (containers, networks, volumes, and images) related to this project.
 
 ### Building Images
 
@@ -64,7 +65,7 @@ To run the `certtest:new` image, run:
 make run-new
 ```
 
-### Shut Down Container
+### Remove Container
 
 ```bash
 make remove
