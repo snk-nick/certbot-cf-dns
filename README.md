@@ -89,5 +89,3 @@ To remove all resources (containers, networks, volumes, and images) related to t
 ```bash
 make purge
 ```
-
-This will also remove dangling images, volumes, and build cache to free up disk space. Use this when you're completely done.

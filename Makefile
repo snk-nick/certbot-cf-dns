@@ -43,9 +43,15 @@ remove:
 	docker compose down
 	
 purge:
-	docker compose down -v && docker rmi $(OLD_IMAGE) $(NEW_IMAGE) && \
-	docker rmi $(OLD_IMAGE) $(NEW_IMAGE) && \
-	docker image prune -f && \
-	docker volume prune -f && \
-	docker builder prune -f && \
-	docker container prune -f
+	@sh -c " \
+		docker compose down -v && \
+		docker rmi $(OLD_IMAGE) $(NEW_IMAGE) && \
+		docker ps -a --filter 'ancestor=$(OLD_IMAGE)' --format '{{.ID}}' | xargs -r docker rm -f && \
+		docker ps -a --filter 'ancestor=$(NEW_IMAGE)' --format '{{.ID}}' | xargs -r docker rm -f && \
+		echo 'There may be additional files left on your system, consider the following commands:' && \
+		echo '  docker image prune -f' && \
+		echo '  docker volume prune -f' && \
+		echo '  docker builder prune -f' && \
+		echo '  docker container prune -f' && \
+		echo 'However, please note these are system-wide commands and may affect other images/builds.' \
+	"
