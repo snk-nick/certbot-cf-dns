@@ -32,4 +32,7 @@ RUN chmod +x /init-certbot.sh
 
 # Runs the init-certbot script on launch, output to stdout
 ENTRYPOINT ["/bin/sh", "-c", "/init-certbot.sh"]
+
+# Runs the init-certbot script on launch then every 12 hours afterwards.
+# Output logged to /var/log/certbot.log
 #ENTRYPOINT ["/bin/sh", "-c", "trap exit TERM; while :; do /init-certbot.sh >> /var/log/certbot.log 2>&1; sleep 12h & wait ${!}; done"]
