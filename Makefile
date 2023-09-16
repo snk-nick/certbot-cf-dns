@@ -39,7 +39,10 @@ run-old-detached:
 run-new-detached:
 	CERTBOT_IMAGE_NAME=$(NEW_IMAGE) docker compose up -d
 
-remove:
+remove: 
+	docker compose down
+	
+purge:
 	docker compose down -v && docker rmi $(OLD_IMAGE) $(NEW_IMAGE) && \
 	docker rmi $(OLD_IMAGE) $(NEW_IMAGE) && \
 	docker image prune -f && \
