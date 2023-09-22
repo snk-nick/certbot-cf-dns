@@ -6,7 +6,7 @@ Presence of `CLOUDFLARE_EMAIL` env variable causes the Cloudflare library to def
 
 Fix: Renamed `CLOUDFLARE_EMAIL` to `FE_NOTIFY_EMAIL` and working as expected.
 
-The current official builds don't seem to work due to an issue with the python-cloudflare package.  
+~~The current official builds don't seem to work due to an issue with the python-cloudflare package.~~  
 **_(Warning: This container should NOT be used in production without additional testing.)_**
 
 ## Table of Contents
