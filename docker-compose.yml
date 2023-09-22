@@ -7,8 +7,10 @@ services:
         - ssl_certs_testing:/etc/letsencrypt
       environment:
         CLOUDFLARE_TOKEN: ${CLOUDFLARE_TOKEN}
-        CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
+        LE_NOTIFY_EMAIL: ${LE_NOTIFY_EMAIL}
         CLOUDFLARE_DOMAIN_LIST: ${CLOUDFLARE_DOMAIN_LIST}
+      # Uncomment to enter/troubleshoot
+      # entrypoint: ["/bin/sh", "-c", "tail -f /dev/null"]
 
 volumes:
   ssl_certs_testing:

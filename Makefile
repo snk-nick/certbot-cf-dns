@@ -26,7 +26,7 @@ build-old:
 	docker build --build-arg CLOUDFLARE_VERSION=2.8.15 -t $(OLD_IMAGE) .
 
 build-new:
-	docker build --build-arg CLOUDFLARE_VERSION=2.11.6 -t $(NEW_IMAGE) .
+	docker build --build-arg CLOUDFLARE_VERSION=2.11.7 -t $(NEW_IMAGE) .
 
 run-old:
 	CERTBOT_IMAGE_NAME=$(OLD_IMAGE) docker compose up

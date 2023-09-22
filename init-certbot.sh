@@ -13,6 +13,6 @@ certbot certonly \
     --agree-tos \
     --no-eff-email \
     --staging \
+    -m $LE_NOTIFY_EMAIL \
     -n \
-    -m $CLOUDFLARE_EMAIL \
     -d $CLOUDFLARE_DOMAIN_LIST
