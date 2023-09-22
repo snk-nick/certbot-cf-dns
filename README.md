@@ -115,6 +115,8 @@ make remove
 
 ## Expected Results
 
+NOTE: Leaving here for reference however this is no longer the expected result, see fix.
+
 When running the new container:
 
 ```
