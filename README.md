@@ -1,5 +1,11 @@
 # Certbot Testing
 
+Bug has been identifed! https://github.com/cloudflare/python-cloudflare/issues/172
+
+Presence of `CLOUDFLARE_EMAIL` env variable causes the Cloudflare library to defail to using an API key instead of a token.
+
+Fix: Renamed `CLOUDFLARE_EMAIL` to `FE_NOTIFY_EMAIL` and working as expected.
+
 The current official builds don't seem to work due to an issue with the python-cloudflare package.  
 **_(Warning: This container should NOT be used in production without additional testing.)_**
 
@@ -26,10 +32,10 @@ The current official builds don't seem to work due to an issue with the python-c
 Required environment variables:
 
 - `CLOUDFLARE_TOKEN`: Cloudflare token with appropriate permissions (NOT an API key).
-- `CLOUDFLARE_EMAIL`: Email to register domain with.
 - `CLOUDFLARE_DOMAIN_LIST`: List of domains to register in certbot's expected format, e.g.:
   - `"domain.com"` for a single domain
   - `"*.domain.com -d test.domain.com"` for multiple domains with a wildcard
+- `FE_NOTIFY_EMAIL`: Email to register domain with.
 
 Can be provided with an .env file in the following format:
 
