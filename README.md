@@ -41,7 +41,7 @@ Can be provided with an .env file in the following format:
 
 ```
 CLOUDFLARE_TOKEN="abcdefghigjl123456789"
-CLOUDFLARE_DOMAIN_LIST="test@domain.com"
+CLOUDFLARE_DOMAIN_LIST="test.domain.com"
 FE_NOTIFY_EMAIL="email@domain.com"
 ```
 
